@@ -52,4 +52,4 @@ Make changes in your file then test if test passes make a pull request
 
 License
 -----
-GNU v3
+GPL
