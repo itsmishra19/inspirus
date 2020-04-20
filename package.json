@@ -1,0 +1,28 @@
+{
+  "name": "inspirus",
+  "version": "1.0.0",
+  "description": "A discord bot created in eris",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inhydrox/eris-boilerplate.git"
+  },
+  "author": "inhydrox (Rajat Mishra)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inhydrox/eris-boilerplate/issues"
+  },
+  "homepage": "https://github.com/inhydrox/eris-boilerplate#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "eris": "^0.12.0",
+    "fs": "^0.0.2",
+    "path": "^0.12.7",
+    "axios": "^0.19.2",
+    "ms": "^2.1.2"
+  }
+}
