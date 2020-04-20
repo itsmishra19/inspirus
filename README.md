@@ -5,12 +5,13 @@
 
 This is the official GitHub repository of Inspirus discord bot a discord bot which does logging and posts news.
 
- [x] Light Weight
- [x] Created using Eris
- [ ] Music Feature
 
 # Need Help?
 - Join my [Discord](https://discord.gg/xuu6ytN)
+
+# Features
+
+- Light Weight (uses low memory and cpu)
 
 # Updates!
 
