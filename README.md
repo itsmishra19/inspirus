@@ -1,7 +1,6 @@
 # Inspirus
 
 [![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)]()
-[![version](https://img.shields.io/github/package-json/v/inhydrox/inspirus?style=for-the-badge)](https://github.com/inhydrox/inspirus)
 
 This is the official GitHub repository of Inspirus discord bot a discord bot which does logging and posts news.
 
