@@ -3,33 +3,58 @@ exports.run = async (client, msg, args) => {
     
     if (msg.author.id !== owner) return;
 
-     try {
-        let code = eval(args.join(' '));
+    try {
+      const code = args.join(" ");
+      if (!code) return;
+      let evaled = eval(code);
+      let type = typeof evaled
 
-        if (typeof code !== 'string') {
-            code = require('util').inspect(code, { depth: 0 });
-        }
-        let output = client.util.clean(code);
-        output = output.replace(new RegExp(client.token.slice(3), 'gi'), 'GG! You hungry?');
-       if(code.length > 1023) {
-       let res = await client.util.haste(output);
-       msg.channel.createMessage({embed:{
-        color: client.config.colors.success,
-        description: res
-      }});
-       } else {
-        msg.channel.createMessage({embed:{
-        color: client.config.colors.success,
-        description: client.util.codeBlock(output, "js"),
-        fields: [
-        { name: "Type", value: client.util.codeBlock(typeof output) } 
-        ]
-        }});
-       }
-    } catch(e) {
-        msg.channel.createMessage({embed: {color: client.config.colors.error, description: client.util.codeBlock(e)}});
+      if (typeof evaled !== "string")
+      evaled = require('util').inspect(evaled, { depth: 0});
+      let output = client.util.clean(evaled);
+      output = output.replace(new RegExp(client.token, 'gi'), '*');      
+
+      if (output.length > 1024) {
+          const postCode = await client.util.haste(output);
+            msg.channel.createMessage({embed: {
+            color: client.config.colors.success,
+            description: postCode,
+            fields: [
+              {name: 'Type', value: client.util.codeBlock(type, "js")}
+            ]
+    }});
+      } else {
+            msg.channel.createMessage({embed: {
+            color: client.config.colors.success,
+            description: client.util.codeBlock(output, "js"),
+            fields: [
+              {name: 'Type', value: client.util.codeBlock(type, "js")}
+            ]
+    }});
+      }
+    } catch (e) {
+      let error = client.util.clean(e);
+      if (error.length > 1024) {
+          const postCode = await client.util.haste(error);
+            msg.channel.createMessage({embed: {
+            color: client.config.colors.error,
+            description: postCode,
+            fields: [
+              {name: 'Type', value: client.util.codeBlock(this.type, "js")}
+            ]
+    }});
+      } else {
+            msg.channel.createMessage({embed: {
+            color: client.config.colors.success,
+            description: client.util.codeBlock(error, "js"),
+            fields: [
+              {name: 'Type', value: client.util.codeBlock(this.type, "js")}
+            ]
+    }});
+      }
     }
+
   });
 }
 
-exports.aliases = ['ev']
+exports.aliases = ['ev'];
