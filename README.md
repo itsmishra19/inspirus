@@ -1,3 +1,5 @@
+# Sorry, I was busy and this thing has went little outdated, I'll use the latest version of eris and update this asap
+
 # Inspirus
 
 [![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)]()
